@@ -1,0 +1,50 @@
+<h3>Upload a song!!</h3>
+
+<form #form="ngForm" (ngSubmit)="uploadSong(form)">
+    <label for="username">Username: </label>
+    <br>
+    <input type="text" id='username' name='username' ngModel required>
+    <br><br>
+    <label for="song_name">Title: </label>
+    <br>
+    <input type="text" id='song_name' name='song_name' ngModel required>
+    <br><br>
+    <label for="country">Country: </label>
+    <br>
+    <select name="country" ngModel required>
+        <option value="Japan">Japan</option>
+        <option value="Malaysia">Malaysia</option>
+        <option value="Russian_Federation">Russian Federation</option>
+        <option value="Singapore">Singapore</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="United States">United States</option>
+    </select>
+    <br><br>
+    <label for="listen_slots">Listen slots: </label>
+    <br>
+    <select name="listen_slots" ngModel required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <br><br>
+    <label for="lyrics">Lyrics: </label>
+    <br>
+    <textarea id="lyrics" name='lyrics' cols="40" rows="10"
+    placeholder='Insert your lyrics here' ngModel></textarea>
+    <br><br>
+    <label for="musicfile">MP3 File: </label>
+    <br>
+    <input type="file" id='musicfile' name='musicfile' 
+    ngModel #musicFile required>
+    <br><br>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Upload</button>
+</form>
+
+<br>
+<hr>
+<button mat-raised-button color="accent" (click)=goToAllSongs()>All songs</button>
+<br><br>
+<button mat-raised-button color="accent" (click)=goToSelectSong()>Select song to play</button>

@@ -1,0 +1,24 @@
+<p>songslist works!</p>
+
+<h4>List of uploaded songs</h4>
+
+<table border="1">
+  <tr>
+    <th width="15vw">Flag</th>
+    <th width="25vw">Title</th> 
+    <th width="20vw">Country</th>
+    <th width="20vw">Listen slots</th>
+    <th width="20vw">Checked out</th>
+  </tr>
+  <div *ngFor="let song of songsArray">
+      <tr>
+          <th width="15vw"><img src="../../assets/{{ song.countryCode }}.png" alt='' height="25"></th>
+          <th width="25vw">{{ song.title }}</th>
+          <th width="20vw">{{ song.country }}</th>
+          <th width="20vw">{{ song.listen_slots }}</th>
+          <th width="20vw">{{ song.checked_out }}</th>
+      </tr>
+  </div>
+</table>
+
+<button mat-raised-button color="basic" (click)=back()>Back</button>

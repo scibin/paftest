@@ -1,0 +1,31 @@
+<p>availablesongs works!</p>
+
+<h4>Please enter your username!</h4>
+<input [value]="username" (input)="username = $event.target.value">
+
+<div *ngFor="let song of availableSongsArray; let i = index">
+        <mat-card>
+            <mat-card-title>
+                {{ song.title }}
+            </mat-card-title>
+            <mat-card-content>
+                <img mat-card-image src='../../assets/{{ song.countryCode }}.png'
+                alt='' width="20px" height="auto">
+                <span>Number of current users listening: {{ song.users }}</span>
+                <br>
+            </mat-card-content>
+            <mat-card-actions>
+                <div *ngIf="song.users < song.listen_slots">
+                    <button mat-button (click)="playSong(song.title)">
+                        Listen
+                    </button>
+                </div>
+                <div *ngIf="!(song.users < song.listen_slots)">
+                    <button mat-raised-button color="warn" disabled>Not available</button>
+                </div>                
+            </mat-card-actions>
+        </mat-card>
+        <hr>
+</div>
+
+<button mat-raised-button color="basic" (click)=back()>Back</button>
